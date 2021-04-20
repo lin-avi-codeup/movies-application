@@ -1,10 +1,21 @@
 $('document').ready(async () => {
 
-    let movies = await fetch("https://salty-ossified-warrior.glitch.me/movies/");
+    $( "#newMovieSubmit" ).click(function( event ) {
+        alert( "Handler for .submit() called." );
+        event.preventDefault();
+    });
+
+    let movies = await fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/");
+    // let movies = await fetch("https://salty-ossified-warrior.glitch.me/movies/");
     let movieResponse = await movies.json();
     console.log(movieResponse);
 
     for (const movieResponseElement of movieResponse) {
+
+        if (!movieResponseElement.title) {
+            return;
+        }
+
         $('.movieContainer').append(`
         
         <div class="movieCard">
@@ -19,7 +30,10 @@ $('document').ready(async () => {
         console.log(movieResponseElement);
     }
 
-
+    // $( "#newMovieSubmit" ).submit(function( event ) {
+    //     alert( "Handler for .submit() called." );
+    //     event.preventDefault();
+    // });
 
 
 

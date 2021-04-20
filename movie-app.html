@@ -5,26 +5,74 @@
     <title>Title</title>
 
     <script src="node_modules/jquery/dist/jquery.slim.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="movie-app.js"></script>
     <link rel="stylesheet" href="movie-app.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
 <div class="container">
     <div class="movieContainer">
 
-<!--        actors: "Josh Hartnett, Ewan McGregor, Tom Sizemore, Eric Bana"-->
-<!--        director: "Ridley Scott"-->
-<!--        genre: "Drama, History, War"-->
-<!--        id: 2-->
-<!--        plot: "160 elite U.S. soldiers drop into Somalia to capture two top lieutenants of a renegade warlord and find themselves in a desperate battle with a large force of heavily-armed Somalis."-->
-<!--        poster: "https://m.media-amazon.com/images/M/MV5BYWMwMzQxZjQtODM1YS00YmFiLTk1YjQtNzNiYWY1MDE4NTdiXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg"-->
-<!--        rating: "5"-->
-<!--        title: "down"-->
-<!--        year: "2001"-->
+    </div>
+    <div class="addNewMovieContainer">
+
+        <form id="newMovieSubmit" action="#">
+
+            <div class="form-group">
+                <label for="newMovieTitle">Title</label>
+                <input type="text" class="form-control" id="newMovieTitle" placeholder="Black Cock Down">
+            </div>
+            <div class="form-group">
+                <label for="newMovieActors">Actors</label>
+                <input type="text" class="form-control" id="newMovieActors" placeholder="Actors">
+            </div>
+            <div class="form-group">
+                <label for="newMovieDirector">Director</label>
+                <input type="text" class="form-control" id="newMovieDirector" placeholder="Director">
+            </div>
+            <div class="form-group">
+                <label for="newMoviePlot">Plot</label>
+                <input type="text" class="form-control" id="newMoviePlot" placeholder="Plot">
+            </div>
+            <div class="form-group">
+                <label for="newMoviePoster">Poster</label>
+                <input type="text" class="form-control" id="newMoviePoster" placeholder="Poster URL">
+            </div>
+            <div class="form-group">
+                <label for="newMovieYear">Year</label>
+                <input type="number" class="form-control" id="newMovieYear" min="1800" max="2021" placeholder="2001">
+            </div>
+            <div class="form-group">
+                <label for="newMovieRating">Rating</label>
+                <select class="form-control" id="newMovieRating">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="newMovieGenre">Genre</label>
+                <select multiple class="form-control" id="newMovieGenre">
+                    <option>Horror</option>
+                    <option>Comedy</option>
+                    <option>Action</option>
+                    <option>Drama</option>
+                    <option>Family-Friendly</option>
+                    <option>Thriller</option>
+                    <option>War</option>
+                    <option>History</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
 
     </div>
 </div>
-
 
 
 </body>
