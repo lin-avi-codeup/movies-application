@@ -1,8 +1,29 @@
 $('document').ready(async () => {
 
-    $( "#newMovieSubmit" ).click(function( event ) {
+    $( "#newMovieSubmit" ).click(async function( event ) {
         alert( "Handler for .submit() called." );
         event.preventDefault();
+
+        let data = {
+            actors: "Daddy Long Legs",
+            director: "Pepsi Man",
+            genre: "Action, Sci-Fi",
+            plot: "In a world with two brothers and one Pepsi...",
+            poster: "https://arbordayblog.org/wp-content/uploads/2018/06/oak-tree-sunset-iStock-477164218-1080x608.jpg",
+            rating: "3",
+            title: "Tree Feelings",
+            year: "2020"
+        }
+
+        const response = await fetch("https://honeysuckle-holistic-jacket.glitch.me/movies", {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
     });
 
     let movies = await fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/");
@@ -13,7 +34,7 @@ $('document').ready(async () => {
     for (const movieResponseElement of movieResponse) {
 
         if (!movieResponseElement.title) {
-            return;
+            continue;
         }
 
         $('.movieContainer').append(`
