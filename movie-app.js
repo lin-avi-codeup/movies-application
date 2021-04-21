@@ -1,4 +1,21 @@
 $('document').ready(async () => {
+    $('.movie-btn').click(async () => {
+        let searchMovie = $('.movie-search').val().toString();
+        `http://www.omdbapi.com/?i=tt3896198&apikey=ecfa4132&t=${searchMovie}`
+        let searchData = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=ecfa4132&t=${searchMovie}`);
+        let searchResponse = await searchData.json();
+        console.log(searchResponse);
+        console.log(searchResponse.title);
+        $('.movieContainer').append(`
+        
+        <div class="movieCard">
+            <img src="${searchResponse.poster}">
+            <h1 class="movieTitle">${searchResponse.title}</h1>
+            <p class="movieDescription">${searchResponse.plot}</p>
+            <p class="actors">${searchResponse.actors}</p>
+        </div>
+            `);
+    });
 
     $( "#newMovieSubmit" ).click(async function( event ) {
         alert( "Handler for .submit() called." );
@@ -38,7 +55,7 @@ $('document').ready(async () => {
         }
 
         $('.movieContainer').append(`
-        
+
         <div class="movieCard">
             <img src="${movieResponseElement.poster}">
             <h1 class="movieTitle">${movieResponseElement.title}</h1>
