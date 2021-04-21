@@ -41,23 +41,22 @@ $('document').ready(async () => {
             },
             body: JSON.stringify(data) // body data type must match "Content-Type" header
         });
+        movieUpdate();
     });
+    let movieUpdate = async () => {
+        let movies = await fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/");
+        // let movies = await fetch("https://salty-ossified-warrior.glitch.me/movies/");
+        let movieResponse = await movies.json();
+        console.log(movieResponse);
 
-    let movies = await fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/");
-    // let movies = await fetch("https://salty-ossified-warrior.glitch.me/movies/");
-    let movieResponse = await movies.json();
-    console.log(movieResponse);
-
-
-    for (const movieResponseElement of movieResponse) {
+        for (const movieResponseElement of movieResponse) {
 
         if (!movieResponseElement.title) {
             continue;
         }
-
         $('.movieContainer').append(`
 
-        <div class="movieCard">
+        <div class="movieCard" data-id="${movieResponseElement.id}">
             <img src="${movieResponseElement.poster}">
             <h1 class="movieTitle">${movieResponseElement.title}</h1>
             <p class="movieDescription">${movieResponseElement.plot}</p>
@@ -66,19 +65,25 @@ $('document').ready(async () => {
         </div>
         
         `)
-
+            $( ".btn-danger" ).click(function (){
+                let dataId = $(this).parent().data("id");
+                movieDelete(dataId);
+            })
         console.log(movieResponseElement);
-    }
+    }}
+    movieUpdate();
 
-    $( ".btn-danger" ).click(() => {
-
+    let movieDelete = (dataId) => {
         const deleteMovie = {
             method: "DELETE"
         }
-        fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/" + movieResponse.id, deleteMovie).then(function(response){
+        fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/" + dataId, deleteMovie).then(function(response){
             console.log(response);
         });
-    })
+        movieUpdate();
+    }
+
+
     // $( "#newMovieSubmit" ).submit(function( event ) {
     //     alert( "Handler for .submit() called." );
     //     event.preventDefault();
