@@ -48,6 +48,7 @@ $('document').ready(async () => {
     let movieResponse = await movies.json();
     console.log(movieResponse);
 
+
     for (const movieResponseElement of movieResponse) {
 
         if (!movieResponseElement.title) {
@@ -61,6 +62,7 @@ $('document').ready(async () => {
             <h1 class="movieTitle">${movieResponseElement.title}</h1>
             <p class="movieDescription">${movieResponseElement.plot}</p>
             <p class="actors">${movieResponseElement.actors}</p>
+            <button type="button" class="btn btn-danger" id="delete-btn">Delete from List</button>
         </div>
         
         `)
@@ -68,6 +70,15 @@ $('document').ready(async () => {
         console.log(movieResponseElement);
     }
 
+    $( ".btn-danger" ).click(() => {
+
+        const deleteMovie = {
+            method: "DELETE"
+        }
+        fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/" + movieResponse.id, deleteMovie).then(function(response){
+            console.log(response);
+        });
+    })
     // $( "#newMovieSubmit" ).submit(function( event ) {
     //     alert( "Handler for .submit() called." );
     //     event.preventDefault();
