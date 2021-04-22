@@ -9,3 +9,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+.form-outline{
+    display: flex;
+    flex-direction: row;
+}

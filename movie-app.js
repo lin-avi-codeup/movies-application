@@ -1,4 +1,5 @@
 $('document').ready(async () => {
+//search external db and display information
     $('.movie-btn').click(async () => {
         let searchMovie = $('.movie-search').val().toString();
         `http://www.omdbapi.com/?i=tt3896198&apikey=ecfa4132&t=${searchMovie}`
@@ -16,33 +17,48 @@ $('document').ready(async () => {
         </div>
             `);
     });
-
+//submit button to add edit movie info
     $( "#newMovieSubmit" ).click(async function( event ) {
         alert( "Handler for .submit() called." );
         event.preventDefault();
 
         let data = {
-            actors: "Daddy Long Legs",
-            director: "Pepsi Man",
-            genre: "Action, Sci-Fi",
-            plot: "In a world with two brothers and one Pepsi...",
-            poster: "https://arbordayblog.org/wp-content/uploads/2018/06/oak-tree-sunset-iStock-477164218-1080x608.jpg",
-            rating: "3",
-            title: "Tree Feelings",
-            year: "2020"
+            actors: "",
+            director: "",
+            genre: "",
+            plot: "",
+            poster: "",
+            rating: "",
+            title: "",
+            year: ""
         }
 
         const response = await fetch("https://honeysuckle-holistic-jacket.glitch.me/movies", {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, *cors, same-origin
+            method: 'POST',
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: JSON.stringify(data) // body data type must match "Content-Type" header
+            body: JSON.stringify(data)
         });
         movieUpdate();
     });
+// delete movie
+
+    let movieDelete = (dataId) => {
+        const deleteMovie = {
+            method: "DELETE"
+        }
+        fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/" + dataId, deleteMovie).then(function(response){
+            console.log(response);
+        });
+        movieUpdate();
+    };
+
+//add movie displayed from outside search
+
+//core function
+
     let movieUpdate = async () => {
         let movies = await fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/");
         // let movies = await fetch("https://salty-ossified-warrior.glitch.me/movies/");
@@ -65,23 +81,11 @@ $('document').ready(async () => {
         </div>
         
         `)
-            $( ".btn-danger" ).click(function (){
-                let dataId = $(this).parent().data("id");
-                movieDelete(dataId);
-            })
-        console.log(movieResponseElement);
+        $('.list-group').append(`< liclass= "list-group-item" >${movieResponseElement.title}</li>`)
+
     }}
     movieUpdate();
 
-    let movieDelete = (dataId) => {
-        const deleteMovie = {
-            method: "DELETE"
-        }
-        fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/" + dataId, deleteMovie).then(function(response){
-            console.log(response);
-        });
-        movieUpdate();
-    }
 
 
     // $( "#newMovieSubmit" ).submit(function( event ) {
