@@ -33,7 +33,7 @@ $('document').ready(async () => {
             year: ""
         }
 
-        const response = await fetch("https://honeysuckle-holistic-jacket.glitch.me/movies", {
+        const response = await fetch("https://powerful-artistic-catboat.glitch.me/movies", {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -49,7 +49,7 @@ $('document').ready(async () => {
         const deleteMovie = {
             method: "DELETE"
         }
-        fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/" + dataId, deleteMovie).then(function(response){
+        fetch("https://powerful-artistic-catboat.glitch.me/movies" + dataId, deleteMovie).then(function(response){
             console.log(response);
         });
         movieUpdate();
@@ -61,7 +61,7 @@ $('document').ready(async () => {
 
    let movieUpdate = async () => {
         // let movies = await fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/");
-        let movies = await fetch("https://salty-ossified-warrior.glitch.me/movies/");
+        let movies = await fetch("https://powerful-artistic-catboat.glitch.me/movies");
         let movieResponse = await movies.json();
         console.log(movieResponse);
 
@@ -70,7 +70,7 @@ $('document').ready(async () => {
         if (!movieResponseElement.title) {
             continue;
         }
-        $('.carousel-item').append(`
+        $('.carousel-inner').append(`
         <div class="carousel-item">
         <div class="d-block w-100 movieCard" data-id="${movieResponseElement.id}">
             <img src="${movieResponseElement.poster}">
@@ -80,8 +80,8 @@ $('document').ready(async () => {
         </div>
         </div>
         `)
-        $('.list-group').append(`<li class= "list-group-item" >${movieResponseElement.title}</li>`)
-
+        $('.list-group').append(`<li class= "list-group-item" >${movieResponseElement.title}</li>`);
+            $('.carousel').carousel();
     }}
     await movieUpdate();
 
