@@ -18,8 +18,7 @@ $('document').ready(async () => {
             `);
     });
 //submit button to add edit movie info
-    $( "#newMovieSubmit" ).click(async function( event ) {
-        alert( "Handler for .submit() called." );
+    $( "#newMovieButton" ).click(async function( event ) {
         event.preventDefault();
 
         let data = {
@@ -43,8 +42,22 @@ $('document').ready(async () => {
         });
         movieUpdate();
     });
-// delete movie
+// TODO: delete movie
 
+    // let movieDelete = (dataId) => {
+    //     const deleteMovie = {
+    //         method: "DELETE"
+    //     }
+    //     fetch("https://powerful-artistic-catboat.glitch.me/movies" + dataId, deleteMovie).then(function(response){
+    //         console.log(response);
+    //     });
+    //     movieUpdate();
+    // };
+
+//TODO: secondary delete button option
+
+    $('.btn-danger').click( async function(event){
+    let dataId = $('.active').data('id');
     let movieDelete = (dataId) => {
         const deleteMovie = {
             method: "DELETE"
@@ -54,13 +67,13 @@ $('document').ready(async () => {
         });
         movieUpdate();
     };
+})
 
 //add movie displayed from outside search
 
 //core function
 
    let movieUpdate = async () => {
-        // let movies = await fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/");
         let movies = await fetch("https://powerful-artistic-catboat.glitch.me/movies");
         let movieResponse = await movies.json();
         console.log(movieResponse);
