@@ -59,9 +59,9 @@ $('document').ready(async () => {
 
 //core function
 
-    let movieUpdate = async () => {
-        let movies = await fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/");
-        // let movies = await fetch("https://salty-ossified-warrior.glitch.me/movies/");
+   let movieUpdate = async () => {
+        // let movies = await fetch("https://honeysuckle-holistic-jacket.glitch.me/movies/");
+        let movies = await fetch("https://salty-ossified-warrior.glitch.me/movies/");
         let movieResponse = await movies.json();
         console.log(movieResponse);
 
@@ -70,31 +70,22 @@ $('document').ready(async () => {
         if (!movieResponseElement.title) {
             continue;
         }
-        $('.movieContainer').append(`
-
-        <div class="movieCard" data-id="${movieResponseElement.id}">
+        $('.carousel-item').append(`
+        <div class="carousel-item">
+        <div class="d-block w-100 movieCard" data-id="${movieResponseElement.id}">
             <img src="${movieResponseElement.poster}">
             <h1 class="movieTitle">${movieResponseElement.title}</h1>
             <p class="movieDescription">${movieResponseElement.plot}</p>
             <p class="actors">${movieResponseElement.actors}</p>
-            <button type="button" class="btn btn-danger" id="delete-btn">Delete from List</button>
         </div>
-        
+        </div>
         `)
-        $('.list-group').append(`< liclass= "list-group-item" >${movieResponseElement.title}</li>`)
+        $('.list-group').append(`<li class= "list-group-item" >${movieResponseElement.title}</li>`)
 
     }}
-    movieUpdate();
+    await movieUpdate();
 
-
-
-    // $( "#newMovieSubmit" ).submit(function( event ) {
-    //     alert( "Handler for .submit() called." );
-    //     event.preventDefault();
-    // });
-
-
-
-})
+    console.log("five thousand years later");
+});
 
 
