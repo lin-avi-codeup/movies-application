@@ -6,14 +6,14 @@ $('document').ready(async () => {
         let searchData = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=ecfa4132&t=${searchMovie}`);
         let searchResponse = await searchData.json();
         console.log(searchResponse);
-        console.log(searchResponse.title);
+        console.log(searchResponse.Title);
         $('.movieContainer').append(`
         
         <div class="movieCard">
-            <img src="${searchResponse.poster}">
-            <h1 class="movieTitle">${searchResponse.title}</h1>
-            <p class="movieDescription">${searchResponse.plot}</p>
-            <p class="actors">${searchResponse.actors}</p>
+            <img src="${searchResponse.Poster}">
+            <h1 class="movieTitle">${searchResponse.Title}</h1>
+            <p class="movieDescription">${searchResponse.Plot}</p>
+            <p class="actors">${searchResponse.Actors}</p>
         </div>
             `);
     });
