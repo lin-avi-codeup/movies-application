@@ -18,21 +18,32 @@ $('document').ready(async () => {
             `);
     });
 //submit button to add edit movie info
+
+    let titleData = $('#newMovieTitle').val();
+    let actorData = $('#newMovieActors').val();
+    let plotData = $('#newMoviePlot').val();
+    let directorData = $('#newMovieDirector').val();
+    let yearData = $('#newMovieYear').val();
+    let ratingData = $('#newMovieRating').val();
+    let posterData = $('#newMoviePoster').val();
+    let genreData = $('#newMovieGenre').val()
+
+
     $("#newMovieButton").click(async function (event) {
         event.preventDefault();
 
         let data = {
-            actors: "",
-            director: "",
-            genre: "",
-            plot: "",
-            poster: "",
-            rating: "",
-            title: "",
-            year: ""
+            actors: actorData,
+            director: directorData,
+            genre: genreData,
+            plot: plotData,
+            poster: posterData,
+            rating: ratingData,
+            title: titleData,
+            year: yearData
         }
 
-        const response = await fetch("https://powerful-artistic-catboat.glitch.me/movies", {
+        const response = await fetch("https://powerful-artistic-catboat.glitch.me/movies/", {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -42,20 +53,7 @@ $('document').ready(async () => {
         });
         movieUpdate();
     });
-// TODO: delete movie
-
-    // let movieDelete = (dataId) => {
-    //     const deleteMovie = {
-    //         method: "DELETE"
-    //     }
-    //     fetch("https://powerful-artistic-catboat.glitch.me/movies" + dataId, deleteMovie).then(function(response){
-    //         console.log(response);
-    //     });
-    //     movieUpdate();
-    // };
-
-//TODO: secondary delete button option
-
+//delete button :DD!
     $('.btn-danger').click(async function () {
         let dataId = $('.active').data('id');
         console.log(dataId);
