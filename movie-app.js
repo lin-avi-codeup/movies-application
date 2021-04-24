@@ -18,7 +18,7 @@ $('document').ready(async () => {
             `);
     });
 //submit button to add edit movie info
-    $( "#newMovieButton" ).click(async function( event ) {
+    $("#newMovieButton").click(async function (event) {
         event.preventDefault();
 
         let data = {
@@ -56,36 +56,39 @@ $('document').ready(async () => {
 
 //TODO: secondary delete button option
 
-    $('.btn-danger').click( async function(event){
-    let dataId = $('.active').data('id');
-    let movieDelete = (dataId) => {
+    $('.btn-danger').click(async function () {
+        let dataId = $('.active').data('id');
+        console.log(dataId);
         const deleteMovie = {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                'content-type': 'application/json'
+            }
         }
-        fetch("https://powerful-artistic-catboat.glitch.me/movies" + dataId, deleteMovie).then(function(response){
+        fetch("https://powerful-artistic-catboat.glitch.me/movies/" + dataId, deleteMovie).then(function (response) {
             console.log(response);
         });
         movieUpdate();
-    };
-})
+    });
 
 //add movie displayed from outside search
 
 //core function
 
-   let movieUpdate = async () => {
+    let movieUpdate = async () => {
         let movies = await fetch("https://powerful-artistic-catboat.glitch.me/movies");
         let movieResponse = await movies.json();
         console.log(movieResponse);
-
+        $('.carousel-inner').empty();
+        $('.list-group').empty();
         for (const movieResponseElement of movieResponse) {
 
-        if (!movieResponseElement.title) {
-            continue;
-        }
-        $('.carousel-inner').append(`
-        <div class="carousel-item">
-        <div class="d-block w-100 movieCard" data-id="${movieResponseElement.id}">
+            if (!movieResponseElement.title) {
+                continue;
+            }
+            $('.carousel-inner').append(`
+        <div class="carousel-item" data-id="${movieResponseElement.id}">
+        <div class="d-block w-100 movieCard">
             <img src="${movieResponseElement.poster}">
             <h1 class="movieTitle">${movieResponseElement.title}</h1>
             <p class="movieDescription">${movieResponseElement.plot}</p>
@@ -93,9 +96,10 @@ $('document').ready(async () => {
         </div>
         </div>
         `)
-        $('.list-group').append(`<li class= "list-group-item" >${movieResponseElement.title}</li>`);
+            $('.list-group').append(`<li class= "list-group-item" >${movieResponseElement.title}</li>`);
             $('.carousel').carousel();
-    }}
+        }
+    }
     await movieUpdate();
 
     console.log("five thousand years later");
