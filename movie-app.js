@@ -8,14 +8,19 @@ $('document').ready(async () => {
         let searchResponse = await searchData.json();
         console.log(searchResponse);
         console.log(searchResponse.Title);
-        $('.movieContainer').append(`  
-        <div class="movieCard">
+        $('.carousel-inner').append(`
+        <div class="carousel-item">
+        <div class="d-block w-100 movieCard">
             <img src="${searchResponse.Poster}">
-            <h1 class="movieTitle">${searchResponse.Title}</h1>
+            <p><h1 class="rating-movieTitle">${searchResponse.Title}</h1>${searchResponse.Rating}/5</p>
+            <p class="director"><p>Directed by: </p>${searchResponse.Director}</p>
+            <p class="actors"><p>Starring: </p>${searchResponse.Actors}</p>
+            <p>Synopsis</p>
             <p class="movieDescription">${searchResponse.Plot}</p>
-            <p class="actors">${searchResponse.Actors}</p>
+
         </div>
-            `);
+        </div>
+        `)
     });
 //submit button to add edit movie info
 
@@ -102,12 +107,15 @@ $('document').ready(async () => {
                 continue;
             }
             $('.carousel-inner').append(`
-        <div class="carousel-item" data-id="${movieResponseElement.id}">
+        <div class="carousel-item ${movieResponseElement.title === movieResponse[0].title ? 'active' : ''}" data-id="${movieResponseElement.id}">
         <div class="d-block w-100 movieCard">
             <img src="${movieResponseElement.poster}">
-            <h1 class="movieTitle">${movieResponseElement.title}</h1>
+            <p><h1 class="rating-movieTitle">${movieResponseElement.title}</h1>${movieResponseElement.rating}/5</p>
+            <p class="director"><p>Directed by: </p>${movieResponseElement.director}</p>
+            <p class="actors"><p>Starring: </p>${movieResponseElement.actors}</p>
+            <p>Synopsis</p>
             <p class="movieDescription">${movieResponseElement.plot}</p>
-            <p class="actors">${movieResponseElement.actors}</p>
+
         </div>
         </div>
         `)
