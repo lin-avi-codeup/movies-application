@@ -1,5 +1,6 @@
 $('document').ready(async () => {
 //search external db and display information
+
     $('.movie-btn').click(async () => {
         let searchMovie = $('.movie-search').val().toString();
         `http://www.omdbapi.com/?i=tt3896198&apikey=ecfa4132&t=${searchMovie}`
@@ -7,8 +8,7 @@ $('document').ready(async () => {
         let searchResponse = await searchData.json();
         console.log(searchResponse);
         console.log(searchResponse.Title);
-        $('.movieContainer').append(`
-        
+        $('.movieContainer').append(`  
         <div class="movieCard">
             <img src="${searchResponse.Poster}">
             <h1 class="movieTitle">${searchResponse.Title}</h1>
@@ -46,7 +46,7 @@ $('document').ready(async () => {
 
     $("#editMovieButton").click(async function (event) {
         event.preventDefault();
-
+        let dataId = $('.active').data('id');
         let data = {
             actors: $('#newMovieActors').val(),
             director: $('#newMovieDirector').val(),
@@ -58,8 +58,8 @@ $('document').ready(async () => {
             year: $('#newMovieYear').val()
         }
 
-        const response = await fetch("https://powerful-artistic-catboat.glitch.me/movies/", {
-            method: 'POST',
+        const response = await fetch("https://powerful-artistic-catboat.glitch.me/movies/" + dataId, {
+            method: 'PATCH',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
@@ -70,6 +70,7 @@ $('document').ready(async () => {
     });
 
 //delete button :DD!
+
     $('.btn-danger').click(async function () {
         let dataId = $('.active').data('id');
         console.log(dataId);
