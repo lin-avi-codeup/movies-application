@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Nomad Movies</title>
 
     <script src="node_modules/jquery/dist/jquery.slim.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -12,10 +12,16 @@
 </head>
 <body>
 
+<div class="App-Header">
+    <header>
+        Nomad Films
+    </header>
+</div>
+
 <!--outside db search and my movies list-->
 
 <div class="row">
-    <div class="col-3">
+    <div class="movies-list col-3">
         <div class="input-group">
         <div class="form-outline">
             <input type="search" id="form1" class="form-control movie-search" placeholder="Movie Title">
@@ -89,7 +95,7 @@
             </div>
             <div class="form-group">
                 <label for="newMoviePoster">Poster</label>
-                <input type="text" class="form-control" id="newMoviePoster" placeholder="Poster URL">
+                <input type="text" class="form-control movie-poster" id="newMoviePoster" placeholder="Poster URL">
             </div>
             <div class="form-group">
                 <label for="newMovieYear">Year</label>

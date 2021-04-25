@@ -2,14 +2,51 @@
     display: flex;
     flex-direction: column;
     width: 25%;
-    border: 1px solid rebeccapurple;
 }
 .movieContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.form-outline{
+.form-outline {
     display: flex;
     flex-direction: row;
+    padding: 1em;
+}
+.btn-primary {
+    background-color: #282c34;
+}
+.movie-poster {
+    border: 5px solid lightgrey;
+    border-radius: 25px;
+}
+.App-Header {
+    background-color: #282c34;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+}
+.movies-list {
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+    text-decoration: white;
+}
+.my-movies-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 84%;
+    padding-left: 1em;
+    border: none;
+}
+.list-group {
+    width: 100%;
+    border: none;
 }
