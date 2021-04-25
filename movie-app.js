@@ -19,28 +19,18 @@ $('document').ready(async () => {
     });
 //submit button to add edit movie info
 
-    let titleData = $('#newMovieTitle').val();
-    let actorData = $('#newMovieActors').val();
-    let plotData = $('#newMoviePlot').val();
-    let directorData = $('#newMovieDirector').val();
-    let yearData = $('#newMovieYear').val();
-    let ratingData = $('#newMovieRating').val();
-    let posterData = $('#newMoviePoster').val();
-    let genreData = $('#newMovieGenre').val()
-
-
     $("#newMovieButton").click(async function (event) {
         event.preventDefault();
 
         let data = {
-            actors: actorData,
-            director: directorData,
-            genre: genreData,
-            plot: plotData,
-            poster: posterData,
-            rating: ratingData,
-            title: titleData,
-            year: yearData
+            actors: $('#newMovieActors').val(),
+            director: $('#newMovieDirector').val(),
+            plot: $('#newMoviePlot').val(),
+            genre: $('#newMovieGenre').val(),
+            poster: $('#newMoviePoster').val(),
+            rating: $('#newMovieRating').val(),
+            title: $('#newMovieTitle').val(),
+            year: $('#newMovieYear').val()
         }
 
         const response = await fetch("https://powerful-artistic-catboat.glitch.me/movies/", {
@@ -53,6 +43,32 @@ $('document').ready(async () => {
         });
         movieUpdate();
     });
+
+    $("#editMovieButton").click(async function (event) {
+        event.preventDefault();
+
+        let data = {
+            actors: $('#newMovieActors').val(),
+            director: $('#newMovieDirector').val(),
+            plot: $('#newMoviePlot').val(),
+            genre: $('#newMovieGenre').val(),
+            poster: $('#newMoviePoster').val(),
+            rating: $('#newMovieRating').val(),
+            title: $('#newMovieTitle').val(),
+            year: $('#newMovieYear').val()
+        }
+
+        const response = await fetch("https://powerful-artistic-catboat.glitch.me/movies/", {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        movieUpdate();
+    });
+
 //delete button :DD!
     $('.btn-danger').click(async function () {
         let dataId = $('.active').data('id');
