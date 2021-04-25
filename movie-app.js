@@ -11,17 +11,43 @@ $('document').ready(async () => {
         $('.carousel-inner').append(`
         <div class="carousel-item">
         <div class="d-block w-100 movieCard">
-            <img src="${searchResponse.Poster}">
-            <p><h1 class="rating-movieTitle">${searchResponse.Title}</h1>${searchResponse.Rating}/5</p>
-            <p class="director"><p>Directed by: </p>${searchResponse.Director}</p>
-            <p class="actors"><p>Starring: </p>${searchResponse.Actors}</p>
+            <img  class="search-image" src="${searchResponse.Poster}">
+            <p class="search-rating"><h1 class="search-title">${searchResponse.Title}</h1>${searchResponse.Rating}/5</p>
+            <p class="search-director"><p>Directed by: </p>${searchResponse.Director}</p>
+            <p class="search-actors"><p>Starring: </p>${searchResponse.Actors}</p>
             <p>Synopsis</p>
-            <p class="movieDescription">${searchResponse.Plot}</p>
+            <p class="search-description">${searchResponse.Plot}</p>
 
         </div>
         </div>
         `)
     });
+
+
+    // $(".add-outsideDB").click(async function (event) {
+    //     event.preventDefault();
+    //
+    //     let data = {
+    //         actors: $('.sear').html(),
+    //         director: $('#newMovieDirector').html(),
+    //         plot: $('#newMoviePlot').html(),
+    //         genre: $('#newMovieGenre').html(),
+    //         poster: $('#newMoviePoster').html(),
+    //         rating: $('#newMovieRating').html(),
+    //         title: $('#newMovieTitle').html(),
+    //         year: $('#newMovieYear').html()
+    //     }
+    //
+    //     const response = await fetch("https://powerful-artistic-catboat.glitch.me/movies/", {
+    //         method: 'POST',
+    //         mode: 'cors',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(data)
+    //     });
+    //     movieUpdate();
+    // });
 //submit button to add edit movie info
 
     $("#newMovieButton").click(async function (event) {
