@@ -1,25 +1,12 @@
-.movieCard {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-image: linear-gradient(
+            180deg
+            , #282c34, #17a2b8);
 }
-.movieContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-.form-outline {
-    display: flex;
-    flex-direction: row;
-    padding: 1em;
-}
-.btn-primary {
-    background-color: #282c34;
-}
-.movie-poster {
-    border: 5px solid lightgrey;
-    border-radius: 25px;
-}
+
 .App-Header {
     background-color: #282c34;
     height: 70px;
@@ -32,21 +19,75 @@
     padding: 20px;
     cursor: pointer;
 }
+
+.movieCard {
+    height: 800px;
+    width: 400px;
+    background-repeat: no-repeat, repeat;
+    background-position: center; /* Center the image */
+    background-size: contain;
+    background-image: url("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQrLPwoTp6Mmpik6F2FXYR_CtE2_7ZBsulsmh63xKW1tw_TqGDE");
+
+}
+
+.movieCard-inner {
+    background: #FFF;
+    top: 250px;
+    max-width: 80%;
+    position: relative;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.carousel-item {
+    padding-top: 1em;
+}
+
+.movieContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 100vh;
+}
+
+.form-outline {
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+}
+
+.btn-primary {
+    background-color: #282c34;
+}
+
+.movie-poster {
+    border: 5px solid lightgrey;
+    border-radius: 25px;
+}
+
 .movies-list {
     display: flex;
     flex-direction: column;
     padding: 2px;
-    text-decoration: white;
+    border: none;
 }
+
 .my-movies-container {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
+    justify-content: space-evenly;
     width: 84%;
     padding-left: 1em;
     border: none;
 }
+
 .list-group {
     width: 100%;
     border: none;
+}
+
+.p-head {
+    margin-right: 5em;
+    font-size: 1.5em;
 }

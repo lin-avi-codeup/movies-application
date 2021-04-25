@@ -23,20 +23,20 @@
 <div class="row">
     <div class="movies-list col-3">
         <div class="input-group">
-        <div class="form-outline">
-            <input type="search" id="form1" class="form-control movie-search" placeholder="Movie Title">
-            <a class="btn btn-primary movie-btn" data-toggle="" href="#" role="button" >
-            Search
-            </a>
+            <div class="form-outline">
+                <input type="search" id="form1" class="form-control movie-search" placeholder="Movie Title">
+                <a class="btn btn-primary movie-btn" data-toggle="" href="#" role="button">
+                    Search
+                </a>
+            </div>
         </div>
-        </div>
-        <div class="border my-movies-container">
+        <div class="my-movies-container">
             <ul class="list-group">My Movies
 
             </ul>
         </div>
     </div>
-<!--movie list or search display-->
+    <!--movie list or search display-->
     <div class="col-9">
         <div class="container">
             <div class="movieContainer h-75 border-primary" data-keyboard="true">
@@ -58,81 +58,85 @@
                 </div>
             </div>
 
-<!--buttons to add/edit/delete            -->
-        <p>
-            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-        Edit Or Add Custom Movie
-            </a>
-            <a class="btn btn-success add-outsideDB" role="button" >
-            Add
-            </a>
-            <a class="btn btn-danger" role="button" >
-            Delete
-        </a>
-<!--edit add custom movie form-->
-        </p>
-    <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-    <div class="addNewMovieContainer">
+            <!--buttons to add/edit/delete            -->
+            <p>
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
+                   aria-expanded="false" aria-controls="collapseExample">
+                    Edit Or Add Custom Movie
+                </a>
+                <a class="btn btn-success add-outsideDB" role="button">
+                    Add
+                </a>
+                <a class="btn btn-danger" role="button">
+                    Delete
+                </a>
+                <!--edit add custom movie form-->
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <div class="addNewMovieContainer">
 
-        <form id="newMovieSubmit" action="#">
+                        <form id="newMovieSubmit" action="#">
 
-            <div class="form-group">
-                <label for="newMovieTitle">Title</label>
-                <input type="text" class="form-control" id="newMovieTitle" placeholder="Black Hawk Down">
+                            <div class="form-group">
+                                <label for="newMovieTitle">Title</label>
+                                <input type="text" class="form-control" id="newMovieTitle"
+                                       placeholder="Black Hawk Down">
+                            </div>
+                            <div class="form-group">
+                                <label for="newMovieActors">Actors</label>
+                                <input type="text" class="form-control" id="newMovieActors" placeholder="Actors">
+                            </div>
+                            <div class="form-group">
+                                <label for="newMovieDirector">Director</label>
+                                <input type="text" class="form-control" id="newMovieDirector" placeholder="Director">
+                            </div>
+                            <div class="form-group">
+                                <label for="newMoviePlot">Plot</label>
+                                <input type="text" class="form-control" id="newMoviePlot" placeholder="Plot">
+                            </div>
+                            <div class="form-group">
+                                <label for="newMoviePoster">Poster</label>
+                                <input type="text" class="form-control movie-poster" id="newMoviePoster"
+                                       placeholder="Poster URL">
+                            </div>
+                            <div class="form-group">
+                                <label for="newMovieYear">Year</label>
+                                <input type="number" class="form-control" id="newMovieYear" min="1800" max="2021"
+                                       placeholder="2001">
+                            </div>
+                            <div class="form-group">
+                                <label for="newMovieRating">Rating</label>
+                                <select class="form-control" id="newMovieRating">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="newMovieGenre">Genre</label>
+                                <select multiple class="form-control" id="newMovieGenre">
+                                    <option>Horror</option>
+                                    <option>Comedy</option>
+                                    <option>Action</option>
+                                    <option>Drama</option>
+                                    <option>Family-Friendly</option>
+                                    <option>Thriller</option>
+                                    <option>War</option>
+                                    <option>History</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success" id="newMovieButton">Add New</button>
+                                <button type="submit" class="btn btn-primary" id="editMovieButton">Edit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="newMovieActors">Actors</label>
-                <input type="text" class="form-control" id="newMovieActors" placeholder="Actors">
-            </div>
-            <div class="form-group">
-                <label for="newMovieDirector">Director</label>
-                <input type="text" class="form-control" id="newMovieDirector" placeholder="Director">
-            </div>
-            <div class="form-group">
-                <label for="newMoviePlot">Plot</label>
-                <input type="text" class="form-control" id="newMoviePlot" placeholder="Plot">
-            </div>
-            <div class="form-group">
-                <label for="newMoviePoster">Poster</label>
-                <input type="text" class="form-control movie-poster" id="newMoviePoster" placeholder="Poster URL">
-            </div>
-            <div class="form-group">
-                <label for="newMovieYear">Year</label>
-                <input type="number" class="form-control" id="newMovieYear" min="1800" max="2021" placeholder="2001">
-            </div>
-            <div class="form-group">
-                <label for="newMovieRating">Rating</label>
-                <select class="form-control" id="newMovieRating">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="newMovieGenre">Genre</label>
-                <select multiple class="form-control" id="newMovieGenre">
-                    <option>Horror</option>
-                    <option>Comedy</option>
-                    <option>Action</option>
-                    <option>Drama</option>
-                    <option>Family-Friendly</option>
-                    <option>Thriller</option>
-                    <option>War</option>
-                    <option>History</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-success" id="newMovieButton">Add New</button>
-                <button type="submit" class="btn btn-primary" id="editMovieButton">Edit</button>
-            </div>
-        </form>
-    </div>
         </div>
-    </div>
-</div>
     </div>
 </div>
 
