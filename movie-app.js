@@ -9,18 +9,14 @@ $('document').ready(async () => {
         console.log(searchResponse);
         console.log(searchResponse.Title);
         $('.carousel-inner').append(`
-        <div class="carousel-item">
-        <div class="d-block w-100 movieCard">
+        <div class="carousel-item" data-id="">
+        <div class="d-block w-100 movieCard" style="background-image:url(${searchResponse.Poster})">
         <div class="movieCard-inner">
-          
-            <p class="search-rating"><h1 class="search-title">${searchResponse.Title}</h1>${searchResponse.Rating}/5</p>
-            <p class="search-director"><p>Directed by: </p>${searchResponse.Director}</p>
-            <p class="search-actors"><p>Starring: </p>${searchResponse.Actors}</p>
-            <p>Synopsis</p>
-            <p class="search-description">${searchResponse.Plot}</p>
-        </div>
-        </div>
-        </div>
+            <span><h1 class="rating-movieTitle search-title">${searchResponse.title}</h1 class="search-rating" >${searchResponse.rating}/5</span>
+            <p class="director"><span class="p-head">Directed by: <br></span class ="search-director" >${searchResponse.director}</p>
+            <p class="actors"><span class="p-head">Starring: <br></span class ="search-actors">${searchResponse.actors}</p>
+            <p class="p-head">Synopsis</p>
+            <span class="movieDescription search-description">${searchResponse.plot}</span>
         `)
     });
 
@@ -29,13 +25,13 @@ $('document').ready(async () => {
         event.preventDefault();
 
         let data = {
-            actors: $('p.search-actors').html(),
-            director: $('p.search-director').html(),
-            plot: $('p.search-direction').html(),
+            actors: $('.search-actors').text(),
+            director: $('.search-director').text(),
+            plot: $('.search-direction').text(),
             genre: '',
-            poster: $('img.search-image').html(),
-            rating: $('p.search-rating').html(),
-            title: $('h1.search-title').html(),
+            poster: $('.search-image').text(),
+            rating: $('.search-rating').text(),
+            title: $('.search-title').text(),
             year: ''
         }
 
@@ -135,7 +131,7 @@ $('document').ready(async () => {
             }
             $('.carousel-inner').append(`
         <div class="carousel-item ${movieResponseElement.title === movieResponse[0].title ? 'active' : ''}" data-id="${movieResponseElement.id}">
-        <div class="d-block w-100 movieCard">
+        <div class="d-block w-100 movieCard" style="background-image:url(${movieResponseElement.poster})">
         <div class="movieCard-inner">
             <span><h1 class="rating-movieTitle">${movieResponseElement.title}</h1>${movieResponseElement.rating}/5</span>
             <p class="director"><span class="p-head">Directed by: <br></span>${movieResponseElement.director}</p>
