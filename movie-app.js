@@ -10,11 +10,11 @@ $('document').ready(async () => {
         console.log(searchResponse.Title);
         $('.carousel-inner').append(`
         <div class="carousel-item" data-id="">
-        <div class="d-block w-100 movieCard" style="background-image:url(${searchResponse.Poster})">
+        <div class="d-block w-100 movieCard search-image" style="background-image:url(${searchResponse.Poster})">
         <div class="movieCard-inner">
-            <span><h1 class="rating-movieTitle search-title">${searchResponse.Title}</h1 class="search-rating" >${searchResponse.Rating}/5</span>
-            <p class="director"><span class="p-head">Directed by: <br></span class ="search-director" >${searchResponse.Director}</p>
-            <p class="actors"><span class="p-head">Starring: <br></span class ="search-actors">${searchResponse.Actors}</p>
+            <span><h1 class="rating-movieTitle search-title">${searchResponse.Title}</h1><p class="search-rating">${searchResponse.Rating}/5</p></span>
+            <span class="p-head">Directed by: <br></span><p class ="search-director">${searchResponse.Director}</p>
+            <span class="p-head">Starring: <br></span><p class="actors search-actors">${searchResponse.Actors}</p>
             <p class="p-head">Synopsis</p>
             <span class="movieDescription search-description">${searchResponse.Plot}</span>
         `)
