@@ -11,13 +11,14 @@ $('document').ready(async () => {
         $('.carousel-inner').append(`
         <div class="carousel-item">
         <div class="d-block w-100 movieCard">
-            <img  class="search-image" src="${searchResponse.Poster}">
-            <h1 class="search-title">${searchResponse.Title}</h1><p class="search-rating">${searchResponse.Rating}/5</p>
-            <p class="search-director">${searchResponse.Director}</p>
+        <div class="movieCard-inner">
+          
+            <p class="search-rating"><h1 class="search-title">${searchResponse.Title}</h1>${searchResponse.Rating}/5</p>
+            <p class="search-director"><p>Directed by: </p>${searchResponse.Director}</p>
             <p class="search-actors"><p>Starring: </p>${searchResponse.Actors}</p>
             <p>Synopsis</p>
             <p class="search-description">${searchResponse.Plot}</p>
-
+        </div>
         </div>
         </div>
         `)
@@ -135,13 +136,13 @@ $('document').ready(async () => {
             $('.carousel-inner').append(`
         <div class="carousel-item ${movieResponseElement.title === movieResponse[0].title ? 'active' : ''}" data-id="${movieResponseElement.id}">
         <div class="d-block w-100 movieCard">
-            <img src="${movieResponseElement.poster}">
-            <p><h1 class="rating-movieTitle">${movieResponseElement.title}</h1>${movieResponseElement.rating}/5</p>
-            <p class="director"><p>Directed by: </p>${movieResponseElement.director}</p>
-            <p class="actors"><p>Starring: </p>${movieResponseElement.actors}</p>
-            <p>Synopsis</p>
-            <p class="movieDescription">${movieResponseElement.plot}</p>
-
+        <div class="movieCard-inner">
+            <span><h1 class="rating-movieTitle">${movieResponseElement.title}</h1>${movieResponseElement.rating}/5</span>
+            <p class="director"><span class="p-head">Directed by: <br></span>${movieResponseElement.director}</p>
+            <p class="actors"><span class="p-head">Starring: <br></span>${movieResponseElement.actors}</p>
+            <p class="p-head">Synopsis</p>
+            <span class="movieDescription">${movieResponseElement.plot}</span>
+        </div>
         </div>
         </div>
         `)
