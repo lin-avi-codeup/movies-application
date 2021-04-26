@@ -24,17 +24,19 @@ $('document').ready(async () => {
     $(".add-outsideDB").click(async function (event) {
         event.preventDefault();
 
+        let posterImg = $('.search-image').css("background-image")
+        console.log(posterImg);
         let data = {
             actors: $('.search-actors').html(),
             director: $('.search-director').text(),
-            plot: $('.search-direction').text(),
+            plot: $('.search-description').text(),
             genre: '',
-            poster: $('.search-image').css("background-image"),
+            poster: posterImg.substr(5,  posterImg.length - 6),
             rating: $('.search-rating').text(),
             title: $('.search-title').text(),
             year: ''
         }
-
+        console.log(data.poster);
         const response = await fetch("https://powerful-artistic-catboat.glitch.me/movies/", {
             method: 'POST',
             mode: 'cors',
