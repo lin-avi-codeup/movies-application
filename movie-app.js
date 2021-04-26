@@ -12,11 +12,11 @@ $('document').ready(async () => {
         <div class="carousel-item" data-id="">
         <div class="d-block w-100 movieCard" style="background-image:url(${searchResponse.Poster})">
         <div class="movieCard-inner">
-            <span><h1 class="rating-movieTitle search-title">${searchResponse.title}</h1 class="search-rating" >${searchResponse.rating}/5</span>
-            <p class="director"><span class="p-head">Directed by: <br></span class ="search-director" >${searchResponse.director}</p>
-            <p class="actors"><span class="p-head">Starring: <br></span class ="search-actors">${searchResponse.actors}</p>
+            <span><h1 class="rating-movieTitle search-title">${searchResponse.Title}</h1 class="search-rating" >${searchResponse.Rating}/5</span>
+            <p class="director"><span class="p-head">Directed by: <br></span class ="search-director" >${searchResponse.Director}</p>
+            <p class="actors"><span class="p-head">Starring: <br></span class ="search-actors">${searchResponse.Actors}</p>
             <p class="p-head">Synopsis</p>
-            <span class="movieDescription search-description">${searchResponse.plot}</span>
+            <span class="movieDescription search-description">${searchResponse.Plot}</span>
         `)
     });
 
@@ -25,11 +25,11 @@ $('document').ready(async () => {
         event.preventDefault();
 
         let data = {
-            actors: $('.search-actors').text(),
+            actors: $('.search-actors').html(),
             director: $('.search-director').text(),
             plot: $('.search-direction').text(),
             genre: '',
-            poster: $('.search-image').text(),
+            poster: $('.search-image').css("background-image"),
             rating: $('.search-rating').text(),
             title: $('.search-title').text(),
             year: ''
