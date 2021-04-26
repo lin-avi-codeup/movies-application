@@ -25,30 +25,30 @@ $('document').ready(async () => {
     });
 
 
-    // $(".add-outsideDB").click(async function (event) {
-    //     event.preventDefault();
-    //
-    //     let data = {
-    //         actors: $('.sear').html(),
-    //         director: $('#newMovieDirector').html(),
-    //         plot: $('#newMoviePlot').html(),
-    //         genre: $('#newMovieGenre').html(),
-    //         poster: $('#newMoviePoster').html(),
-    //         rating: $('#newMovieRating').html(),
-    //         title: $('#newMovieTitle').html(),
-    //         year: $('#newMovieYear').html()
-    //     }
-    //
-    //     const response = await fetch("https://powerful-artistic-catboat.glitch.me/movies/", {
-    //         method: 'POST',
-    //         mode: 'cors',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     });
-    //     movieUpdate();
-    // });
+    $(".add-outsideDB").click(async function (event) {
+        event.preventDefault();
+
+        let data = {
+            actors: $('p.search-actors').html(),
+            director: $('p.search-director').html(),
+            plot: $('p.search-direction').html(),
+            genre: '',
+            poster: $('img.search-image').html(),
+            rating: $('p.search-rating').html(),
+            title: $('h1.search-title').html(),
+            year: ''
+        }
+
+        const response = await fetch("https://powerful-artistic-catboat.glitch.me/movies/", {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        movieUpdate();
+    });
 //submit button to add edit movie info
 
     $("#newMovieButton").click(async function (event) {
