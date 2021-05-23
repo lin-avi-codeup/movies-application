@@ -22,21 +22,22 @@ body {
 
 .movieCard {
     height: 800px;
-    width: 400px;
-    background-repeat: no-repeat, repeat;
-    background-position: center; /* Center the image */
+    /* width: 400px; */
+    background-repeat: no-repeat;
+    background-position: top;
     background-size: contain;
-
-
 }
 
 .movieCard-inner {
     background: #FFF;
-    top: 250px;
-    max-width: 80%;
+    top: 420px;
+    max-width: 86%;
     position: relative;
+    /* justify-content: left; */
     text-align: center;
     opacity: 0.8;
+    margin-left: 45px;
+    padding-bottom: 10px;
 }
 
 .carousel-item {
