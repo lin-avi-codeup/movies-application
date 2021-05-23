@@ -29,11 +29,12 @@ body {
 }
 
 .movieCard-inner {
-    background: #FFF;
+    background: linear-gradient(
+            354deg
+            , #fff7f7 70%, #f9f6f600);
     top: 420px;
     max-width: 86%;
     position: relative;
-    /* justify-content: left; */
     text-align: center;
     opacity: 0.8;
     margin-left: 45px;
@@ -91,4 +92,10 @@ body {
 .p-head {
     margin-right: 5em;
     font-size: 1.5em;
+}
+
+.button-container{
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
 }
